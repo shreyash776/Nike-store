@@ -1,38 +1,93 @@
-import React from 'react'
-import '@fortawesome/fontawesome-free/css/all.css';
+import React,{useRef} from "react"
+// import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookSquare,
+  faTwitter,
+  faInstagram,
+  faFacebookMessenger } from '@fortawesome/free-brands-svg-icons';
 const Header = () => {
+  
+const video1Ref=useRef(null);
+const video2Ref=useRef(null);
+const video3Ref=useRef(null);
+
+  async function play (videoRef) {
+    try {
+    videoRef.current.play();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  async function pause (videoRef) {
+    try {
+    videoRef.current.pause();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <>
-     <div className='header-box'>
-     <div className='cliped-back'></div>
-     <nav className='nav-box'> 
-     <div className='nav-content'>
-     <div className='logo'></div>
-     <div className='icon-box'>
-        <div className='search'><i className="fa-solid fa-magnifying-glass fa-lg"></i></div>
-        <div className='like'><i className="fa-regular fa-heart fa-lg"></i></div>
-        <div className='cart'><i className="fa-brands fa-shopify fa-lg"></i></div>
-     </div>
-     </div>
-     </nav>
-      <div className='hero-section'>
-      <div className='heading'>
-            <h1 className='head'>Play With Electric Nike</h1>
-            <h1 className='head'>Adapt 2.0 Sneakers</h1>
-            <button className='explore-btn'>Explore Store</button>
+      <div className="header-box">
+        <div className="cliped-back"></div>
+        <nav className="nav-box">
+          <div className="nav-content">
+            <div className="logo"></div>
+            <div className="icon-box">
+              <div className="search">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+</svg> 
+              </div>
+              <div className="like">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+</svg>
+
+              </div>
+              <div className="cart">
+        
+                <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+</svg>
+
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div className="hero-section">
+          <div className="heading">
+            <h1 className="head">Play With Electric Nike</h1>
+            <h1 className="head">Adapt 2.0 Sneakers</h1>
+            <button className="explore-btn">Explore Store</button>
+            <div className="shoe"> </div>
+          </div>
+          <div className="hero-content">
+              <div className="videos">    <video className="video1" ref={video1Ref}  onMouseOver={() => play(video1Ref)}  onMouseLeave={()=>pause(video1Ref)} muted loop >
+                <source src="/clip-add.mp4" type="video/mp4"></source>
+              </video>
+              <video className="video2" ref={video2Ref} onMouseOver={() => play(video2Ref)}  onMouseLeave={()=>pause(video2Ref) } muted loop>
+                <source src="/clip-add.mp4" type="video/mp4"></source>
+              </video>
+              <video className="video3"  ref={video3Ref} onMouseOver={() => play(video3Ref)}  onMouseLeave={()=>pause(video3Ref)}  muted loop>
+                <source src="/clip-add.mp4" type="video/mp4"></source>
+              </video>
+            </div>
+            <div className="media-icons">
+            <FontAwesomeIcon icon={faFacebookSquare} className="facebook-icon social-icon" />
+        <FontAwesomeIcon icon={faFacebookMessenger} className="messenger-icon social-icon" />
+            
+          <FontAwesomeIcon icon={faTwitter} className="twitter-icon social-icon" />
+         <FontAwesomeIcon icon={faInstagram} className="instagram-icon social-icon" />
+
+              </div>
+            </div>
+          </div>
         </div>
-
-       <div className='hero-content'>
-       <div className='videos'></div>
-     <div className='shoe'> </div>
-      <div className='media-icons'></div>
-       </div>
-      </div>
-     </div>
-
-
+      
     </>
-  )
+  );
 }
+;
 
-export default Header
+export default Header;
