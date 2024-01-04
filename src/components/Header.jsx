@@ -1,4 +1,4 @@
-import React,{useRef} from "react"
+import React,{useRef,useState,useEffect} from "react"
 // import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare,
@@ -6,7 +6,44 @@ import { faFacebookSquare,
   faInstagram,
   faFacebookMessenger } from '@fortawesome/free-brands-svg-icons';
 const Header = () => {
+  const[scrolled,setScrolled]=useState(false);
+
+    const handleScroll=()=>{
+      if(window.scrollY >10)
+      { setScrolled(true);}
+
+      if(window.scrollY <1)
+      { setScrolled(false);}
+    }
+  console.log(scrolled);
+    useEffect(() => {
+      window.addEventListener('scroll', handleScroll);
   
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
+
+    const navStyle={
+      backdropFilter: scrolled ? 'blur(8px)' : 'none',
+     color:scrolled?'black':'white',
+    width:'100%',
+    height:scrolled?'60px':'40px',
+    marginTop:scrolled ?'-4px':'none',
+    position:scrolled ?'fixed':'absolute',
+    top:scrolled ?'0':'15px',
+    paddingTop:scrolled?'8px':'0',
+    left:'0',
+    zIndex: '2',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
+
+
+     
+
+
 const video1Ref=useRef(null);
 const video2Ref=useRef(null);
 const video3Ref=useRef(null);
@@ -30,10 +67,11 @@ const video3Ref=useRef(null);
     <>
       <div className="header-box">
         <div className="cliped-back"></div>
-        <nav className="nav-box">
+        <nav className="nav-box" style={navStyle}>
           <div className="nav-content">
-            <div className="logo"></div>
-            <div className="icon-box">
+            <div className="logo" style={{backgroundImage:scrolled?"url('/public/new-black-logo.png')":"url('/logo-8d8ce0ec.png')",
+            height:scrolled?'100%':'98%',width:scrolled?'8.5rem':'5.5rem',backgroundSize:'contain',backgroundRepeat: 'no-repeat' }}></div>
+            <div className="icon-box" style={{color:scrolled?'black':'white'}}>
               <div className="search">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
   <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
@@ -58,7 +96,7 @@ const video3Ref=useRef(null);
         <div className="hero-section">
           <div className="heading">
             <h1 className="head">Play With Electric Nike</h1>
-            <h1 className="head">Adapt 2.0 Sneakers</h1>
+            <h1 className="head">Adapt 2.0 Sneakers {scrolled}</h1>
             <button className="explore-btn">Explore Store</button>
             <div className="shoe"> </div>
           </div>

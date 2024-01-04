@@ -2,34 +2,32 @@
   margin:0;
   padding:0;
 }
+body{
+  padding:0;
+  overflow-x: hidden;
+}
 .header-box{
   width:100%;
-  height:auto;
+  height:100vh;
+  /* position:absolute; */
+  /* top:0;
+  left:0; */
+
 }
 
 .cliped-back{
   clip-path: polygon(0 0,100% 0,100% 100%,0 65%);
   height: 85vh;
-  width:100%;
+  width:100vw;
   margin-top: 0;
   background-image: linear-gradient(.2deg,rgba(40,173,222,1) 4.8%,rgb(27,76,224) 85.5%);
-  position:absolute;
-  top:0;
+  position:absolute; 
+
+   top:0;
   left:0;
-  z-index: -1;
+  z-index: -999999999!important; 
 }
-.nav-box{
-  width:100%;
-  height:40px;
-  
-  position:absolute;
-  top:7px;
-  left:0;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 .nav-content{
  height:100%;
  width:92.2%;
@@ -41,7 +39,7 @@
 .logo{
   height:98%;
   width:5.5rem;
-  background-image: url("./assets/logo-8d8ce0ec.png");
+
   background-size:contain;
   background-repeat: no-repeat;
 }
@@ -118,8 +116,8 @@
   background-image:url('./assets/hero-26fc9f87.png');
   background-size:contain; 
   background-repeat:no-repeat;
-  z-index:9; 
-  position:absolute;
+  z-index:9999999!important; 
+ position:absolute;
   top:10rem;
   transform:rotate(-30deg);
   transition-property: all;
@@ -136,7 +134,7 @@
   width:80%;
   height:60%;
   display: flex;
-  z-index:-1;
+  z-index:9999;
   justify-content: space-between;
 
 }
@@ -148,14 +146,15 @@
   flex-direction: column;
   align-items: center;
   justify-content:space-evenly;
-  z-index:9;
+  z-index:999999999999999999999999999999999;
+  position:absolute;
 
  }
  video{
   height:25%;
   width:65%;
   border-radius:10px;
-  /* border:2px solid white; */
+  aspect-ratio:2.6;
   background-size:cover;
   object-fit: cover;
  }
@@ -187,6 +186,9 @@
   align-items: end;
   justify-content: space-around;
   padding-top:1.2rem;
+  position:absolute;
+  right:0;
+  z-index:9999999999999999999999999;
 }
 .hero-section{
   display: flex;
@@ -227,6 +229,33 @@
   transform: scale(1.1);
   transition: all 0.2s ease-in-out;
 }
+
+ .popular-head{
+  font-size: 1.5rem;
+  width:90%;
+    line-height: 2rem;
+    color:#0F172A;
+    font-family: 'Poppins', sans-serif;
+   
+
+
+ } 
+ .popular-box{
+  background-color:blueviolet;
+  height:10rem;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -1rem;
+ }
+
+
+
+
+
+
+
 
 
 
