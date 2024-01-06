@@ -1,5 +1,5 @@
-import React,{useRef,useState,useEffect} from "react"
-// import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
+import React,{useRef,useState,useEffect} from "react";
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare,
   faTwitter,
@@ -25,18 +25,19 @@ const Header = () => {
     }, []);
 
     const navStyle={
-      backdropFilter: scrolled ? 'blur(8px) brightness(2)' : 'none',
+      backdropFilter: scrolled ? 'blur(8px) brightness(1.2)' : 'none',
      color:scrolled?'black':'white',
+     backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.4)' : 'transparent',
     width:'100%',
     transition:scrolled?'height 0.8s ease-in-out':'height 0.8s ease-in-out',
     height:scrolled?'60px':'40px',
-    
+    // borderBottom:scrolled?'1px solid rgb(207, 202, 202)':'none',
     marginTop:scrolled ?'-4px':'none',
     position:scrolled ?'fixed':'absolute',
     top:scrolled ?'0':'15px',
     paddingTop:scrolled?'8px':'0',
     left:'0',
-    zIndex: '99999999999999999999999999999999999999',
+    zIndex: '99999999999999999999999999',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -65,7 +66,7 @@ const video3Ref=useRef(null);
   return (
     <>
       <div className="header-box">
-        <div className="cliped-back"></div>
+        <div className="cliped-back"> </div>
         <nav className="nav-box" style={navStyle}>
           <div className="nav-content">
             <div className="logo" style={{backgroundImage:scrolled?"url('/public/new-black-logo.png')":"url('/logo-8d8ce0ec.png')",
