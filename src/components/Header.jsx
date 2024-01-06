@@ -9,7 +9,7 @@ const Header = () => {
   const[scrolled,setScrolled]=useState(false);
 
     const handleScroll=()=>{
-      if(window.scrollY >10)
+      if(window.scrollY >60)
       { setScrolled(true);}
 
       if(window.scrollY <1)
@@ -25,24 +25,23 @@ const Header = () => {
     }, []);
 
     const navStyle={
-      backdropFilter: scrolled ? 'blur(8px)' : 'none',
+      backdropFilter: scrolled ? 'blur(8px) brightness(2)' : 'none',
      color:scrolled?'black':'white',
     width:'100%',
+    transition:scrolled?'height 0.8s ease-in-out':'height 0.8s ease-in-out',
     height:scrolled?'60px':'40px',
+    
     marginTop:scrolled ?'-4px':'none',
     position:scrolled ?'fixed':'absolute',
     top:scrolled ?'0':'15px',
     paddingTop:scrolled?'8px':'0',
     left:'0',
-    zIndex: '2',
+    zIndex: '99999999999999999999999999999999999999',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    
   }
-
-
-     
-
 
 const video1Ref=useRef(null);
 const video2Ref=useRef(null);
