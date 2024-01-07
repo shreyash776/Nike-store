@@ -4,6 +4,7 @@ import Popular from './components/Popular'
 
 
 import './App.css'
+import Highlight from './components/Highlight'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
     <>
      <Header />
      <Popular />
+     <Highlight />
       {/* <Footer /> */}
     </>
   )
