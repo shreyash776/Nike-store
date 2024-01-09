@@ -41,6 +41,7 @@ const Header = () => {
     alignItems: 'center',
     justifyContent: 'center',
     
+    
   }
 
 const video1Ref=useRef(null);
@@ -66,7 +67,7 @@ const video3Ref=useRef(null);
     <>
       <div className="header-box">
         <div className="cliped-back"> </div>
-        <nav className="nav-box" style={navStyle}>
+        <nav className="nav-box" style={navStyle} >
           <div className="nav-content">
             <div className="logo" style={{backgroundImage:scrolled?"url('/public/new-black-logo.png')":"url('/logo-8d8ce0ec.png')",
             height:scrolled?'100%':'98%',width:scrolled?'8.5rem':'5.5rem',backgroundSize:'contain',backgroundRepeat: 'no-repeat' }}></div>

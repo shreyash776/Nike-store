@@ -1,11 +1,11 @@
 
 import Header from './components/Header'
 import Popular from './components/Popular'
-
-
+import Sales from './components/Sales'
+import Footer from './components/Footer'
 import './App.css'
 import Highlight from './components/Highlight'
-
+import Featured from './components/Featured'
 function App() {
 
 
@@ -14,7 +14,9 @@ function App() {
      <Header />
      <Popular />
      <Highlight />
-      {/* <Footer /> */}
+     <Sales />
+     <Featured />
+      <Footer />
     </>
   )
 }
