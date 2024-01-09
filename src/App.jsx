@@ -6,9 +6,10 @@ import Footer from './components/Footer'
 import './App.css'
 import Highlight from './components/Highlight'
 import Featured from './components/Featured'
+// import Cart from './components/Cart'
 function App() {
 
-
+            
   return (
     <>
      <Header />
