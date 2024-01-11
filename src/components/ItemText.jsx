@@ -6,8 +6,9 @@ import { CartContext } from "../context";
 
 
 const ItemText = (props) => {
-  const {title,description,price,rating,img,color,shadow} = props;
-  const { cart, setCart } = useContext(CartContext);      
+  const {title,description,price,rating,img,color,shadow,customKey} = props;
+  const { cart, setCart } = useContext(CartContext);  
+    
   return (
     <>
       <div        
@@ -95,7 +96,7 @@ const ItemText = (props) => {
             }}
             onClick={()=> setCart(prev => {
                     console.log('Previous Cart:', prev);
-                     const newItem = {title,color,shadow,img,price};
+                     const newItem = {title,color,shadow,img,price,customKey};
                       console.log('New Item:', newItem);
                        return [...prev, newItem];
                        })}
@@ -133,7 +134,7 @@ const ItemText = (props) => {
             }}
           >
             
-            <p onClick={()=>setCart(prev=>[...prev,{title,color,shadow ,img,price}])}   >Buy Now</p>
+            <p onClick={()=>setCart(prev=>[...prev,{title,color,shadow ,img,price,customKey}])} >Buy Now</p>
           </div>
         </div>
       </div>

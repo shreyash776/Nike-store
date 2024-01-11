@@ -3,8 +3,9 @@ import ItemText from './ItemText'
 import { CartContext } from '../context';
 
 const SalesItem = (props) => {
-    const { title, price, rating,img,color,shadow } = props
-  const {cart,setCart}=useContext(CartContext);
+    const { title, price, rating,img,color,shadow,customKey} = props
+    
+    const {cart,setCart}=useContext(CartContext);
   return (
     <> 
      <div className='shoe-card' style={{boxShadow: shadow,background:color}}>
@@ -16,10 +17,10 @@ const SalesItem = (props) => {
             img={img}
             color={color}
             shadow={shadow}
-           
+            customKey={customKey}
 
           />
-       <div className='card-img' style={{backgroundImage:`url(${img})`,}}></div>
+       <div className='card-img' style={{backgroundImage:`url(${img})`}}></div>
        <h1></h1>
      </div>
 

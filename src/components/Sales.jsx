@@ -12,7 +12,7 @@ const Sales = () => {
         description="MEN Running Shoes"
         price="360"
         rating="4.3"
-      
+        Key="1"
         img="/product7-c894b193.png"
         shadow="0 10px 15px -3px #3b82f6, 0 4px 6px -4px #3b82f6"
         color= "linear-gradient(to bottom, #0284c7, #4f46e5)"
@@ -22,7 +22,7 @@ const Sales = () => {
         description="MEN Running Shoes"
         price="380"
         rating="4.7"
-      
+        customKey="2"
         shadow='0 10px 15px -3px #22c55e, 0 4px 6px -4px #22c55e'
         color= 'linear-gradient(to bottom, #22c55e, #10b981)'
         img="/product2-3ffcf84e.png"
@@ -32,7 +32,7 @@ const Sales = () => {
         description="MEN Running Shoes"
         price="260"
         rating="3.7"
-        
+        customKey="3"
         shadow='0 10px 15px -3px #f43f5e, 0 4px 6px -4px #f43f5e'
         
         color="linear-gradient(to bottom, #eF4444, #f43f5e)"
@@ -43,7 +43,7 @@ const Sales = () => {
         description="MEN Running Shoes"
         price="310"
         rating="4.1"
-       
+        customKey="4"
         shadow='0 10px 15px -3px #f59e0b, 0 4px 6px -4px #f59e0b'
 
         color="linear-gradient(to bottom, #f97316, #f59e0b)"
@@ -54,7 +54,7 @@ const Sales = () => {
         description="MEN Running Shoes"
         price="310"
         rating="4.2"
-     
+        customKey="5"
         shadow='0 10px 15px -3px  #eab308, 0 4px 6px -4px  #eab308'
 
         color="linear-gradient(to bottom, #111827 , #eab308 )"
@@ -66,7 +66,7 @@ const Sales = () => {
         description="MEN Running Shoes"
         price="390"
         rating="4.9"
-      
+        customKey="6"
         shadow='0 10px 15px -3px #06b6d4, 0 4px 6px -4px #06b6d4'
 
         color="linear-gradient(to bottom, #3b82f6 , #06b6d4 )"
@@ -78,7 +78,7 @@ const Sales = () => {
         description="MEN Running Shoes"
         price="310"
         rating="4.1"
-   
+        customKey="7"
         shadow='0 10px 15px -3px #eab308, 0 4px 6px -4px #eab308'
 
         color="linear-gradient(to bottom, #eab308 ,#eab308 )"
@@ -90,7 +90,7 @@ const Sales = () => {
         description="MEN Running Shoes"
         price="370"
         rating="4.7"
-       
+        customKey="8"
         color="linear-gradient(to bottom, #936550  ,#7c2d12 )"
         shadow='0 10px 15px -3px #7c2d12, 0 4px 6px -4px #7c2d12'
 
@@ -101,7 +101,7 @@ const Sales = () => {
         description="MEN Running Shoes"
         price="410"
         rating="5"
-        
+        customKey="9"
         color="linear-gradient(to bottom, #4338ca  ,#4338ca )"
         shadow='0 10px 15px -3px #4338ca , 0 4px 6px -4px#4338ca '
 
@@ -112,7 +112,7 @@ const Sales = () => {
         description="MEN Running Shoes"
         price="310"
         rating="4.4"
-      
+        customKey="10"
         color="linear-gradient(to bottom, #16a34a ,#84cc16 )"
         shadow='0 10px 15px -3px #84cc16, 0 4px 6px -4px #84cc16'
 
@@ -123,7 +123,7 @@ const Sales = () => {
         description="MEN Running Shoes"
         price="310"
         rating="4.6"
-     
+        customKey="11"
         color="linear-gradient(to bottom, #0f172a,#000 )"
         shadow='0 10px 15px -3px  #0f172a, 0 4px 6px -4px  #0f172a'
 
@@ -134,7 +134,7 @@ const Sales = () => {
         description="MEN Running Shoes"
         price="110"
         rating="2.7"
-   
+        customKey="12"
         color="linear-gradient(to bottom, #1e3a8a,#3b82f6 )"
         shadow='0 10px 15px -3px #3b82f6, 0 4px 6px -4px #3b82f6'
 

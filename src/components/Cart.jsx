@@ -3,8 +3,9 @@ import React,{useState,useEffect, useContext} from 'react'
 import {CartContext} from '../context';
 import AddedItem from './AddedItem';
 export const Cart = (props) => {
-
+  
   const {cart,setCart}=useContext(CartContext);
+  console.log('cart at cart component',cart);
 
     const{display,key} = props;
     const [cartDisplay, setCartDisplay] = useState(display);
@@ -15,7 +16,7 @@ export const Cart = (props) => {
 
     const manageCart=()=>{
         setCartDisplay('none')
-    }
+    } 
 
  
   return (
@@ -35,10 +36,11 @@ export const Cart = (props) => {
            </div>
            <div style={{display:'flex',flexDirection:'column',paddingLeft:'2rem'}}>
            {cart.map((item,index) => {
-            
-        return   <AddedItem  key={index} title={item.title} color={item.color}   shadow={item.shadow} price={item.price}  img={item.img}  />
-                 
+             console.log('custom key at cart',item.customKey)
+        return  <AddedItem  id={item.customKey} title={item.title} color={item.color}   shadow={item.shadow} price={item.price}  img={item.img}  />
+                
            }
+          
                  )
                  }
            </div>
