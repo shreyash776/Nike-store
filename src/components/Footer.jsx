@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 
-const Footer = () => {
+export const Footer = () => {
   return (
    <>
     <div className='footer-box'>
@@ -46,4 +47,3 @@ const Footer = () => {
   )
 }
 
-export default Footer

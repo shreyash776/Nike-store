@@ -1,5 +1,5 @@
-import React,{useRef,useState,useEffect} from "react";
- import Cart from './Cart';
+import {useRef,useState,useEffect} from "react";
+ import {Cart} from './Cart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare,
   faTwitter,
@@ -7,7 +7,7 @@ import { faFacebookSquare,
   faFacebookMessenger } from '@fortawesome/free-brands-svg-icons';
  
 
-const Header = () => {
+export const Header = () => {
 
   const [display,setDisplay]=useState('none');
   const [key, setKey] = useState(0);
@@ -15,7 +15,7 @@ const Header = () => {
     setDisplay('block');
     setKey((prevKey) => prevKey + 1);
 }
- console.log(`cartIcon${display}`);
+ 
 
   const[scrolled,setScrolled]=useState(false);
 
@@ -139,5 +139,3 @@ const video3Ref=useRef(null);
   );
 }
 ;
-
-export default Header;

@@ -1,6 +1,6 @@
-import React from 'react'
 
-const Featured = () => {
+
+export const Featured = () => {
   return (
    <>
      <div className='featured-container'>
@@ -14,7 +14,7 @@ const Featured = () => {
      Our Purpose is to move the world forward. We take action by building community, protecting our planet and increasing access to sport.
      </p>
     </div>
-    <div className='btn'> <a href="https://sneakernews.com/2022/03/21/nike-lebron-2-retro-white-midnight-navy-varsity-crimson-dr0826-100/" target="_blank">
+    <div className='btn'> <a href="https://sneakernews.com/2022/03/21/nike-lebron-2-retro-white-midnight-navy-varsity-crimson-dr0826-100/" target="_blank" rel="noreferrer">
      <button type='button' style={{ color: 'rgba(241, 245, 249,1)',paddingTop:'0.375rem',paddingBottom:'0.375rem', backgroundColor: `rgba(15, 23, 42, 1)`
      , paddingRight:'1.7rem',paddingLeft:'1.7rem',borderRadius:'0.25rem',
   transition: 'all 0.1s cubic-bezier(0.4, 0, 0.2, 1)',fontSize:'100%', boxShadow: '0 4px 6px -1px rgba(15, 23, 42, 1), 0 2px 4px -2px rgba(15, 23, 42, 1)',}}>Explore More</button>
@@ -28,4 +28,3 @@ const Featured = () => {
   )
 }
 
-export default Featured
