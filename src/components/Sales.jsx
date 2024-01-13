@@ -10,7 +10,7 @@ const Sales = () => {
       <SalesItem 
         title="Nike Air Low Premium"
         description="MEN Running Shoes"
-        price="360"
+        price={370}
         rating="4.3"
         customKey="1"
         img="/product7-c894b193.png"
@@ -20,7 +20,7 @@ const Sales = () => {
       <SalesItem 
         title="Nike Air Force Green"
         description="MEN Running Shoes"
-        price="380"
+        price={380}
         rating="4.7"
         customKey="2"
         shadow='0 10px 15px -3px #22c55e, 0 4px 6px -4px #22c55e'
@@ -30,7 +30,7 @@ const Sales = () => {
        <SalesItem 
         title="Nike Addapt BB Rose"
         description="MEN Running Shoes"
-        price="260"
+        price={260}
         rating="3.7"
         customKey="3"
         shadow='0 10px 15px -3px #f43f5e, 0 4px 6px -4px #f43f5e'
@@ -41,7 +41,7 @@ const Sales = () => {
        <SalesItem 
         title="Nike Air Premium"
         description="MEN Running Shoes"
-        price="310"
+        price={300}
         rating="4.1"
         customKey="4"
         shadow='0 10px 15px -3px #f59e0b, 0 4px 6px -4px #f59e0b'
@@ -52,7 +52,7 @@ const Sales = () => {
         <SalesItem 
         title="Nike Air Premium"
         description="MEN Running Shoes"
-        price="310"
+        price={310}
         rating="4.2"
         customKey="5"
         shadow='0 10px 15px -3px  #eab308, 0 4px 6px -4px  #eab308'
@@ -64,7 +64,7 @@ const Sales = () => {
         <SalesItem 
         title="Nike Air Premium"
         description="MEN Running Shoes"
-        price="390"
+        price={390}
         rating="4.9"
         customKey="6"
         shadow='0 10px 15px -3px #06b6d4, 0 4px 6px -4px #06b6d4'
@@ -76,7 +76,7 @@ const Sales = () => {
         <SalesItem 
         title="Nike Air Premium"
         description="MEN Running Shoes"
-        price="310"
+        price={360}
         rating="4.1"
         customKey="7"
         shadow='0 10px 15px -3px #eab308, 0 4px 6px -4px #eab308'
@@ -88,7 +88,7 @@ const Sales = () => {
         <SalesItem 
         title="Nike Air Premium"
         description="MEN Running Shoes"
-        price="370"
+        price={370}
         rating="4.7"
         customKey="8"
         color="linear-gradient(to bottom, #936550  ,#7c2d12 )"
@@ -99,7 +99,7 @@ const Sales = () => {
         <SalesItem 
         title="Nike Air Premium"
         description="MEN Running Shoes"
-        price="410"
+        price={410}
         rating="5"
         customKey="9"
         color="linear-gradient(to bottom, #4338ca  ,#4338ca )"
@@ -110,7 +110,7 @@ const Sales = () => {
         <SalesItem 
         title="Nike Air Premium"
         description="MEN Running Shoes"
-        price="310"
+        price={310}
         rating="4.4"
         customKey="10"
         color="linear-gradient(to bottom, #16a34a ,#84cc16 )"
@@ -121,7 +121,7 @@ const Sales = () => {
         <SalesItem 
         title="Nike Air Premium"
         description="MEN Running Shoes"
-        price="310"
+        price={310}
         rating="4.6"
         customKey="11"
         color="linear-gradient(to bottom, #0f172a,#000 )"
@@ -132,7 +132,7 @@ const Sales = () => {
         <SalesItem 
         title="Nike Air Premium"
         description="MEN Running Shoes"
-        price="110"
+        price={110}
         rating="2.7"
         customKey="12"
         color="linear-gradient(to bottom, #1e3a8a,#3b82f6 )"

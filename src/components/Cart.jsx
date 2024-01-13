@@ -5,16 +5,17 @@ import AddedItem from "./AddedItem";
 export const Cart = (props) => {
   const { cart, setCart } = useContext(CartContext);  
   const { setShowCart } = props;
-  console.log(cart.map(item=> item.customKey))
+  // console.log(cart.map(item=> item.customKey))
   const clearCart=()=>{
     setCart([]);
   }
   const calculateTotalPrice = () => {
-    // Use reduce to sum up all prices in the cart array
+    
     const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
     return totalPrice;
-  };
+  }
   
+
   return (
     <div className="cart-container" style={{ display: 'block' }}>
       <div className="cart-box">
@@ -42,9 +43,13 @@ export const Cart = (props) => {
                 fontHeight: "1.5rem",
                 color: "rgba(15,23,34,1)",
                 marginLeft: "1rem",
+                display:"flex",
+                justifyContent:"space-around",
+                alignItems:'center',
+                width:'10rem'
               }}
             >
-              Your Cart
+              Your Cart <span style={{backgroundColor:'black',color:'white',minWidth:'3rem',display:'flex',alignItems:'center',justifyContent:"center",borderRadius:'6px',padding:'3px 4px 3px 4px'}}>({cart.length} Items )</span>
             </p>
           </div>
           <div className="cancel-btn" onClick={clearCart}>
@@ -85,15 +90,20 @@ export const Cart = (props) => {
               />
             );
           })}
-         
+          
         
         </div>
-     <div className="bill" style={{position:'absolute',bottom:'0',width:'100%'}}>
-     <div style={{display:'flex', justifyContent:'space-between',alignItems:'center',width:'100%'}}> <span>Total Cart Price:</span> <span>{calculateTotalPrice()}</span> </div>
-     <div style={{display:'flex',justifyContent:'center',alignItems:'center',width:'100%'}} > Taxes and Shipping Will Calculate At Shipping</div>
-     <button style={{display:'flex',justifyContent:'center',alignItems:'center',width:'100%'}}>check out</button>
+     <div className="bill" style={{position:'sticky',top:'100%',width:'100%',padding:'0.5rem 1.25rem 0.5rem 1.25rem',backgroundColor:'white',opacity:'1'}}>
+     <div style={{display:'flex', justifyContent:'space-between',alignItems:'center',maxWidth:'95%',color:'#0F172A',fontSize:'16px',fontWeight:"600",lineHeight:'2rem'
+     }}> <span>SUBTOTAL:</span> <span style={{backgroundColor:'black',color:'white',minWidth:'3rem',display:'flex',alignItems:'center',justifyContent:"center",borderRadius:'4px'}}>
+    $ {calculateTotalPrice()}</span> </div>
+     <div style={{display:'flex',justifyContent:'center',alignItems:'center',width:'95%',color:'#0F172A',fontSize:'16px',fontWeight:'300'}} > Taxes and Shipping Will Calculate At Shipping</div>
+     <div style={{width:'100%', height:'auto',display:'flex',justifyContent:'center',alignItems:'center' }}>
+     <button style={{display:'flex',justifyContent:'center',alignItems:'center',width:'70%',backgroundColor:'black',color:'white',borderRadius:'4px',height:"34px",
+     fontSize:'18px',fontWeight:"400",lineHeight:'1.5rem'}}>Check out</button>
+     </div>
      </div>
       </div>
-    </div>
+    </div>    
   );
 };

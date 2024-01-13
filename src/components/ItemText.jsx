@@ -3,38 +3,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { CartContext } from "../context";
 
+import { ShowCartContext } from "../context";
+
+
+
 const ItemText = (props) => {
-  const { title, description, price, rating, img, color, shadow, customKey } =
-    props;
-  const { cart, setCart } = useContext(CartContext);
-  const [PopUp, setPopUp] = useState(false);
-  console.log(customKey)
+  const { title, description, price, rating, img, color, shadow, customKey } = props;
+  const { cart, setCart } = useContext(CartContext); 
 
-  const PopupHandler = () => {
-     
-    setPopUp(true);
-    setTimeout(() => {
-      setPopUp(false);
-    }, 8000);
-  };
-
-  const popStyle = {
-    display: PopUp ? "block" : "none",
-    position: "fixed",
-    top: "5px",
-    left: "50%",
-    height: "6rem",
-    width: "4rem",
-    backgroundColor: "blue",
-  };
+  const { showCart, setShowCart } = useContext(ShowCartContext);  
+   console.log(cart);
+  
+ 
 
   return (
     <>
-      <div style={popStyle}>pop up</div>
+      
       <div
         className="popular-text"
-        style={{ padding: "0.2rem 0 0.4rem 1.6rem" }}
-      >
+        style={{ padding: "0.2rem 0 0.4rem 1.6rem" }}  >
         <div
           style={{
             color: "#E2E8F0",
@@ -122,13 +109,14 @@ const ItemText = (props) => {
                 //     alert("Error loading");
                 //     return prev;
                 //   }
+          
                   
                 if(prev.some(item=>item.customKey==customKey)){
-                    alert('already added')
+                    alert('Already added')
                     return prev;
                   }
                     
-                  const newItem = {title, description, price, rating, img, color, shadow, customKey}
+                  const newItem = {title, description,price, rating, img, color, shadow, customKey}
                   return [...prev, newItem]
               })
             }
@@ -152,6 +140,7 @@ const ItemText = (props) => {
               borderRadius: "4px",
               cursor:'pointer',
             }}
+            className="buy-btn"
           >
             <p
               onClick={() =>
@@ -161,11 +150,12 @@ const ItemText = (props) => {
                   //   alert("Error loading");
                   //   return prev;
                   // }
+
                   if(prev.some(item=>item.customKey==customKey)){
-                    alert('already added')
+                    alert('Already added')
                     return prev;
                   }
-                    
+                   setShowCart(true);
                   const newItem = {title,description,price,rating,img,color,shadow,customKey}
                   return [...prev, newItem]
                 })
@@ -176,6 +166,7 @@ const ItemText = (props) => {
           </div>
         </div>
       </div>
+      
     </>
   );
 };

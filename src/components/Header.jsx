@@ -1,6 +1,9 @@
 import { useRef, useState, useEffect,useContext } from "react";
-import { Cart } from "./Cart";
+import {Cart} from "./Cart";
 import { CartContext } from "../context";
+import { ShowCartContext } from "../context";
+
+
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,8 +15,9 @@ import {
 
 export const Header = () => {
   const { cart, setCart } = useContext(CartContext);  
+  const { showCart, setShowCart } = useContext(ShowCartContext);  
 
-  const [showCart, setShowCart] = useState(false);
+ 
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -33,13 +37,13 @@ export const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  console.log('final check:',cart)
+  
 
   const navStyle = {
     backdropFilter: scrolled ? "blur(8px) brightness(1.2)" : "none",
     color: scrolled ? "black" : "white",
     backgroundColor: scrolled ? "rgba(255, 255, 255, 0.4)" : "transparent",
-    width: "100%",
+    width: "100vw",
     transition: scrolled
       ? "height 0.6s ease-in-out"
       : "height 0.6s ease-in-out",
@@ -49,10 +53,13 @@ export const Header = () => {
     top: scrolled ? "0" : "15px",
     paddingTop: scrolled ? "8px" : "0",
     left: "0",
+
+    right:"0",
     zIndex: "99999999999999999999999999",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    overflowX:"unset"
   };
 
   const video1Ref = useRef(null);
@@ -75,7 +82,9 @@ export const Header = () => {
   }
 
   return (
-    <>
+    <>     
+
+   
       <div className="header-box">
         <div className="cliped-back"> </div>
         <nav className="nav-box" style={navStyle}>
@@ -129,7 +138,7 @@ export const Header = () => {
                 </svg>
               </div>
               <div className="cart"  style={{position:'relative'}}  onClick={() => setShowCart(true)}>
-              <p style={{backgroundColor:'black',width:'17px',borderRadius:'50%', height:'17px',color:'white',position:'absolute',top:'16px',right:'-5px',border:'1px solid white',fontSize:'11px',display:'flex',justifyContent:'center',alignItems:'center'}}>
+              <p style={{backgroundColor:scrolled?'black':'white',width:'17px',borderRadius:'50%', height:'17px',color:scrolled?'white':'black',position:'absolute',top:'16px',right:'-5px',fontSize:'13px',display:'flex',justifyContent:'center',alignItems:'center',zIndex:"999999"}}>
                {cart.length}
               </p>
                 <svg
