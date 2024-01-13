@@ -129,6 +129,7 @@ body{
   padding: 0;
   transform:rotate(-30deg);
   transition: all .7s cubic-bezier(.4, 0, .2, 1);
+  cursor:pointer;
 
 }
 .shoe:hover{
@@ -414,6 +415,7 @@ body{
   height:16rem;
   transform: rotate(6deg);
   transition: all .8s cubic-bezier(.4, 0, .2, 1);
+  cursor:'pointer';
 
 }
 .featured-img:hover{
@@ -676,12 +678,13 @@ width:40rem;
 
   .cart-container{
     position: fixed;
-    height:100vh;
+    min-height:100vh;
     width:100vw;
     backdrop-filter: blur(16px);
     z-index: 999999999999999999999999999999999999;
     top:0;
     left:0;
+    
   }
   .cart-box{
     
@@ -694,6 +697,8 @@ width:40rem;
     left:auto;
     z-index: 999999999999999999999999999999999999999999999;
     background-color: rgba(255, 255, 255, 0.8);
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
   .cart-nav{
     background-color: white;
@@ -707,6 +712,10 @@ width:40rem;
   .back-btn{
     width:25px;
     height:25px;
+    margin-left:8px;
+  }
+  .back-btn:hover{
+    color:rgb(248, 165, 10);
   }
   .cancel-btn{
     width:25px;
@@ -721,4 +730,22 @@ width:40rem;
     display: flex;
     align-items: center;
     width:auto;
+  }
+  .bag{
+    width:100%;
+    height:80%;
+    background-color: #0F172A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .bag div{
+    width:50%;
+    height:70%;
+    background-image: url('./assets/emptybag-45ac3a55.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .pointer{
+    cursor:pointer;
   }

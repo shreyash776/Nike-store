@@ -1,17 +1,37 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { CartContext } from "../context";
 
-
-
 const ItemText = (props) => {
-  const {title,description,price,rating,img,color,shadow,customKey} = props;
-  const { cart, setCart } = useContext(CartContext);  
-    
+  const { title, description, price, rating, img, color, shadow, customKey } =
+    props;
+  const { cart, setCart } = useContext(CartContext);
+  const [PopUp, setPopUp] = useState(false);
+  console.log(customKey)
+
+  const PopupHandler = () => {
+     
+    setPopUp(true);
+    setTimeout(() => {
+      setPopUp(false);
+    }, 8000);
+  };
+
+  const popStyle = {
+    display: PopUp ? "block" : "none",
+    position: "fixed",
+    top: "5px",
+    left: "50%",
+    height: "6rem",
+    width: "4rem",
+    backgroundColor: "blue",
+  };
+
   return (
     <>
-      <div        
+      <div style={popStyle}>pop up</div>
+      <div
         className="popular-text"
         style={{ padding: "0.2rem 0 0.4rem 1.6rem" }}
       >
@@ -74,7 +94,7 @@ const ItemText = (props) => {
                 marginLeft: "8px",
               }}
             />
-          <span style={{ color: "#F1F5F9", zIndex: "5", fontWeight: "500" }}>
+            <span style={{ color: "#F1F5F9", zIndex: "5", fontWeight: "500" }}>
               {rating}
             </span>
           </div>
@@ -93,28 +113,27 @@ const ItemText = (props) => {
               display: "flex",
               justifyContent: "center",
               borderRadius: "4px",
+              cursor:'pointer'
             }}
-            onClick={()=> setCart(prev => {
-                    console.log('Previous Cart:', prev);
-                     const newItem = {title,color,shadow,img,price,customKey};
-                      console.log('New Item:', newItem);
-                       return [...prev, newItem];
-                       })}
+            onClick={() =>
+              setCart((prev) => {
+                // if(!img||!shadow||!title||! description||! price||!rating||! color||! customKey){
+                //     console.log("Error loading");
+                //     alert("Error loading");
+                //     return prev;
+                //   }
+                  
+                if(prev.some(item=>item.customKey==customKey)){
+                    alert('already added')
+                    return prev;
+                  }
+                    
+                  const newItem = {title, description, price, rating, img, color, shadow, customKey}
+                  return [...prev, newItem]
+              })
+            }
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-              />
-            </svg>
+           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="icon-style text-slate-900"><path fillRule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z" clipRule="evenodd"></path></svg>
           </div>
           <div
             style={{
@@ -131,10 +150,29 @@ const ItemText = (props) => {
               justifyContent: "center",
               alignItems: "center",
               borderRadius: "4px",
+              cursor:'pointer',
             }}
           >
-            
-            <p onClick={()=>setCart(prev=>[...prev,{title,color,shadow ,img,price,customKey}])} >Buy Now</p>
+            <p
+              onClick={() =>
+                setCart((prev) =>{
+                  // if(!img||!shadow||!title||! description||! price||!rating||! color||! customKey){
+                  //   console.log("Error loading");
+                  //   alert("Error loading");
+                  //   return prev;
+                  // }
+                  if(prev.some(item=>item.customKey==customKey)){
+                    alert('already added')
+                    return prev;
+                  }
+                    
+                  const newItem = {title,description,price,rating,img,color,shadow,customKey}
+                  return [...prev, newItem]
+                })
+              }
+            >
+              Buy Now
+            </p>
           </div>
         </div>
       </div>

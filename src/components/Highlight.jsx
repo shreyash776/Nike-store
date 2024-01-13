@@ -5,7 +5,7 @@ const Highlight = () => {
    <>
       
    <div className='highlight-container'>
-    <div className='H-img-container'><div className='highlight-img'></div></div>
+    <div className='H-img-container'><div className='highlight-img pointer'></div></div>
     <div className='highlight-text'>
       <h1 style={{ backgroundImage:' linear-gradient(to top right, #3b82f6, #0ea5e9)',backgroundClip:' text',color: 'transparent',
              fontSize: '2.25rem', lineHeight: '2.5rem',fontWeight:'700',}}>HIGHLIGHTS</h1>

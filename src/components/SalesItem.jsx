@@ -18,9 +18,8 @@ const SalesItem = (props) => {
             color={color}
             shadow={shadow}
             customKey={customKey}
-
           />
-       <div className='card-img' style={{backgroundImage:`url(${img})`}}></div>
+       <div className='card-img pointer' style={{backgroundImage:`url(${img})`}}></div>
        <h1></h1>
      </div>
 

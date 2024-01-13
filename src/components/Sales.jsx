@@ -12,7 +12,7 @@ const Sales = () => {
         description="MEN Running Shoes"
         price="360"
         rating="4.3"
-        Key="1"
+        customKey="1"
         img="/product7-c894b193.png"
         shadow="0 10px 15px -3px #3b82f6, 0 4px 6px -4px #3b82f6"
         color= "linear-gradient(to bottom, #0284c7, #4f46e5)"
