@@ -96,7 +96,7 @@ export const Header = () => {
               className="logo"
               style={{
                 backgroundImage: scrolled
-                  ? "url('/public/new-black-logo.png')"
+                  ? "url('/new-black-logo.png')"
                   : "url('/logo-8d8ce0ec.png')",
                 height: scrolled ? "100%" : "98%",
                 width: scrolled ? "8.5rem" : "5.5rem",
