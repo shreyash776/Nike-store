@@ -2,9 +2,6 @@ import { useRef, useState, useEffect,useContext } from "react";
 import {Cart} from "./Cart";
 import { CartContext } from "../context";
 import { ShowCartContext } from "../context";
-
-
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookSquare,
@@ -16,8 +13,12 @@ import {
 export const Header = () => {
   const { cart, setCart } = useContext(CartContext);  
   const { showCart, setShowCart } = useContext(ShowCartContext);  
-
- 
+  const savedCart = localStorage.getItem("cart");
+  
+   useEffect(()=>{
+        const savedItem =localStorage.getItem('cart')
+        setCart(JSON.parse(savedItem));
+   },[])
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -37,6 +38,8 @@ export const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  
+
   
 
   const navStyle = {
@@ -139,7 +142,7 @@ export const Header = () => {
               </div>
               <div className="cart"  style={{position:'relative'}}  onClick={() => setShowCart(true)}>
               <p style={{backgroundColor:scrolled?'black':'white',width:'17px',borderRadius:'50%', height:'17px',color:scrolled?'white':'black',position:'absolute',top:'16px',right:'-5px',fontSize:'13px',display:'flex',justifyContent:'center',alignItems:'center',zIndex:"999999"}}>
-               {cart.length}
+              {cart?.length || 0}
               </p>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -168,7 +171,7 @@ export const Header = () => {
           </div>
           <div className="hero-content">
             <div className="videos">
-              {" "}
+              
               <video
                 className="video1"
                 ref={video1Ref}

@@ -1,27 +1,26 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { CartContext } from "../context";
 
 import { ShowCartContext } from "../context";
 
-
-
 const ItemText = (props) => {
   const { title, description, price, rating, img, color, shadow, customKey } = props;
-  const { cart, setCart } = useContext(CartContext); 
+  const { cart, setCart } = useContext(CartContext);
 
-  const { showCart, setShowCart } = useContext(ShowCartContext);  
-   console.log(cart);
-  
- 
-
+  const { showCart, setShowCart } = useContext(ShowCartContext);
+  useEffect(() => {
+    if (cart && cart.length > 0) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart]);
   return (
     <>
-      
       <div
         className="popular-text"
-        style={{ padding: "0.2rem 0 0.4rem 1.6rem" }}  >
+        style={{ padding: "0.2rem 0 0.4rem 1.6rem" }}
+      >
         <div
           style={{
             color: "#E2E8F0",
@@ -100,28 +99,48 @@ const ItemText = (props) => {
               display: "flex",
               justifyContent: "center",
               borderRadius: "4px",
-              cursor:'pointer'
+              cursor: "pointer",
             }}
             onClick={() =>
               setCart((prev) => {
-                // if(!img||!shadow||!title||! description||! price||!rating||! color||! customKey){
-                //     console.log("Error loading");
-                //     alert("Error loading");
-                //     return prev;
-                //   }
-          
-                  
-                if(prev.some(item=>item.customKey==customKey)){
-                    alert('Already added')
+
+
+                if(!img||!shadow||!title||! description||! price||!rating||! color||! customKey){
+                    console.log("Error loading");
+                    alert("Error loading");
                     return prev;
                   }
-                    
-                  const newItem = {title, description,price, rating, img, color, shadow, customKey}
-                  return [...prev, newItem]
+
+
+
+                const newItem = {
+                  title,
+                  description,
+                  price,
+                  rating,
+                  img,
+                  color,
+                  shadow,
+                  customKey,
+                };
+                return [...prev, newItem];
+
               })
             }
           >
-           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="icon-style text-slate-900"><path fillRule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z" clipRule="evenodd"></path></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+              className="icon-style text-slate-900"
+            >
+              <path
+                fillRule="evenodd"
+                d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z"
+                clipRule="evenodd"
+              ></path>
+            </svg>
           </div>
           <div
             style={{
@@ -138,26 +157,62 @@ const ItemText = (props) => {
               justifyContent: "center",
               alignItems: "center",
               borderRadius: "4px",
-              cursor:'pointer',
+              cursor: "pointer",
             }}
             className="buy-btn"
           >
             <p
               onClick={() =>
-                setCart((prev) =>{
+                
                   // if(!img||!shadow||!title||! description||! price||!rating||! color||! customKey){
                   //   console.log("Error loading");
                   //   alert("Error loading");
                   //   return prev;
                   // }
 
-                  if(prev.some(item=>item.customKey==customKey)){
-                    alert('Already added')
-                    return prev;
-                  }
-                   setShowCart(true);
-                  const newItem = {title,description,price,rating,img,color,shadow,customKey}
-                  return [...prev, newItem]
+                  // if (prev.some((item) => item.customKey == customKey)) {
+                  //   alert("Already added");
+                  //   return prev;
+                  // }
+                  // setShowCart(true);
+                  // const newItem = {
+                  //   title,
+                  //   description,
+                  //   price,
+                  //   rating,
+                  //   img,
+                  //   color,
+                  //   shadow,
+                  //   customKey,
+                  // };
+                  // return [...prev, newItem];
+                  setCart((prev) => {
+
+
+if(!img||!shadow||!title||! description||! price||!rating||! color||! customKey){
+    console.log("Error loading");
+    alert("Error loading");
+    return prev;
+  }
+
+
+
+const newItem = {
+  title,
+  description,
+  price,
+  rating,
+  img,
+  color,
+  shadow,
+  customKey,
+};
+return [...prev, newItem];
+
+
+
+             
+
                 })
               }
             >
@@ -166,7 +221,6 @@ const ItemText = (props) => {
           </div>
         </div>
       </div>
-      
     </>
   );
 };

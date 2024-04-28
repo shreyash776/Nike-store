@@ -5,14 +5,24 @@ import AddedItem from "./AddedItem";
 export const Cart = (props) => {
   const { cart, setCart } = useContext(CartContext);  
   const { setShowCart } = props;
-  // console.log(cart.map(item=> item.customKey))
-  const clearCart=()=>{
+  const [shoesArray,setShoesArray]=useState([])
+  
+ 
+  const clearCart = () => {
+    localStorage.removeItem("cart");
     setCart([]);
-  }
+  };
+
+  
+ 
+  console.log("localstore:",shoesArray)
+
   const calculateTotalPrice = () => {
-    
-    const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
-    return totalPrice;
+    if(cart&& cart.length >0){
+      const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
+      return totalPrice;
+    }
+   
   }
   
 
@@ -49,10 +59,12 @@ export const Cart = (props) => {
                 width:'10rem'
               }}
             >
-              Your Cart <span style={{backgroundColor:'black',color:'white',minWidth:'3rem',display:'flex',alignItems:'center',justifyContent:"center",borderRadius:'6px',padding:'3px 4px 3px 4px'}}>({cart.length} Items )</span>
+              Your Cart <span style={{backgroundColor:'black',color:'white',minWidth:'3rem',display:'flex',alignItems:'center',justifyContent:"center",borderRadius:'6px',padding:'3px 4px 3px 4px'}}>({cart?.length||0} Items )</span>
             </p>
           </div>
-          <div className="cancel-btn" onClick={clearCart}>
+          <div className="cancel-btn" 
+          onClick={clearCart}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -76,7 +88,7 @@ export const Cart = (props) => {
             marginTop:'0.6rem'
           }}
         >
-          {cart.map((item) => {
+          {  cart &&cart.map((item) => {
              
             return (
               <AddedItem
