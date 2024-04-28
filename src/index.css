@@ -825,3 +825,7 @@ width:40rem;
   .buy-btn:active{
  transform:scale(1.03);
   }
+  .toast{
+    z-index: 99999;
+    
+  }

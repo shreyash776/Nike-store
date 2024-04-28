@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { CartContext } from "../context";
+import { toast } from 'react-toastify';
 
 import { ShowCartContext } from "../context";
 
@@ -101,18 +102,20 @@ const ItemText = (props) => {
               borderRadius: "4px",
               cursor: "pointer",
             }}
+           
             onClick={() =>
               setCart((prev) => {
 
 
                 if(!img||!shadow||!title||! description||! price||!rating||! color||! customKey){
                     console.log("Error loading");
-                    alert("Error loading");
+                    // alert("Error loading");
+                    toast.error('Error in adding item');
                     return prev;
                   }
 
 
-
+                  toast.success('Item added');
                 const newItem = {
                   title,
                   description,
